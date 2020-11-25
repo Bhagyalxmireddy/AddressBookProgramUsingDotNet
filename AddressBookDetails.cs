@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace AddressBook
 {
@@ -11,9 +12,27 @@ namespace AddressBook
         public String address;
         public String city;
         public String state;
-        public long phoneNumber;
-        public long zip;
+        public String phoneNumber;
+        public String zip;
+        String NAME = "^[a-z]{3,}$";
+        String PHONENUMBER = "^[1-9]{1}[0-9]{9}$";
+        String ZIP = "^[1-9]{1}[0-9]{5}$";
+
+
         List<ContactPerson> personDetails = new List<ContactPerson>();
+
+
+        public void validatingPersonDetails(String firstName,String lastName, String phoneNumber,String zip)
+        {
+            if(Regex.IsMatch(firstName, NAME) && (Regex.IsMatch(lastName, NAME)) && (Regex.IsMatch(phoneNumber, PHONENUMBER)) && (Regex.IsMatch(zip, ZIP)))
+            {
+                personDetails.Add(new ContactPerson(firstName, lastName, address, city, state, phoneNumber, zip));
+            }
+            else
+            {
+                Console.WriteLine("Enter a valid details");
+            }
+        }
 
 
         public void addPersonDetails()
@@ -30,10 +49,10 @@ namespace AddressBook
             Console.WriteLine("\n Enter State : ");
             state = Console.ReadLine();
             Console.WriteLine("\n Enter MobileNumber : ");
-            phoneNumber = long.Parse(Console.ReadLine());
+            phoneNumber = Console.ReadLine();
             Console.WriteLine("\n Enter Zip : ");
-            zip = long.Parse(Console.ReadLine());
-
+            zip = Console.ReadLine();
+            validatingPersonDetails(firstName,lastName,phoneNumber,zip);
             personDetails.Add(new ContactPerson(firstName, lastName, address, city, state, phoneNumber, zip));
             foreach (ContactPerson addPerson in personDetails)
                 Console.WriteLine(addPerson.toString());
@@ -62,7 +81,7 @@ namespace AddressBook
                 else
                 {
                     String address, city, state;
-                    long phoneNumber, zip;
+                    String phoneNumber, zip;
                     int id;
 
                     foreach (ContactPerson contact in personDetails)
@@ -95,12 +114,12 @@ namespace AddressBook
                                 break;
                             case 4:
                                 Console.WriteLine("Enter Zip: ");
-                                zip = long.Parse(Console.ReadLine());
+                                zip = Console.ReadLine();
                                 editPerson.zip = zip;
                                 break;
                             case 5:
                                 Console.WriteLine("Enter phonenumber: ");
-                                phoneNumber = long.Parse(Console.ReadLine());
+                                phoneNumber = Console.ReadLine();
                                 editPerson.phoneNumber = phoneNumber;
                                 break;
                             default:

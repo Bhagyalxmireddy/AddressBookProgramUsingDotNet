@@ -11,9 +11,9 @@ namespace AddressBook
          public String address{ get; set; }
          public String city{ get; set; }
          public String state{ get; set; }
-         public long phoneNumber{ get; set; }
-         public long zip{ get; set; }
-public ContactPerson(String firstName, String lastName, String address, String city, String state, long phoneNumber, long zip)
+         public String phoneNumber { get; set; }
+         public String zip { get; set; }
+        public ContactPerson(String firstName, String lastName, String address, String city, String state, String phoneNumber, String zip)
         {
             this.firstName = firstName;
             this.lastName = lastName;

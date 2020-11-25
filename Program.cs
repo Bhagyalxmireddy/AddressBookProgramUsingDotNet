@@ -9,7 +9,7 @@ namespace AddressBook
             int choice1 = 0;
             Console.WriteLine("Welcome to Address Book Program ");
             AddressBookDetails addressBook = new AddressBookDetails();
-            while (choice1 < 5)
+            while (true)
             {
                 Console.WriteLine("1.AddPersonDetails From AddressBook ");
                 Console.WriteLine("2.printPersonDetails From AddressBook ");

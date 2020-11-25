@@ -81,27 +81,27 @@ namespace AddressBook
                             case 1:
                                 Console.WriteLine("Enter Address: ");
                                  address = Console.ReadLine();
-                                 editPerson.setAddress(address);
+                                 editPerson.address = address;
                                 break;
                             case 2:
                                 Console.WriteLine("Enter city: ");
                                  city = Console.ReadLine();
-                                editPerson.setCity(city);
+                                editPerson.city = city;
                                 break;
                             case 3:
                                 Console.WriteLine("Enter state: ");
                                 state = Console.ReadLine();
-                                editPerson.setState(state);
+                                editPerson.state = state;
                                 break;
                             case 4:
                                 Console.WriteLine("Enter Zip: ");
                                 zip = long.Parse(Console.ReadLine());
-                                editPerson.setZip(zip);
+                                editPerson.zip = zip;
                                 break;
                             case 5:
                                 Console.WriteLine("Enter phonenumber: ");
                                 phoneNumber = long.Parse(Console.ReadLine());
-                                editPerson.setPhoneNumber(phoneNumber);
+                                editPerson.phoneNumber = phoneNumber;
                                 break;
                             default:
                                 Console.WriteLine("enter a valid option");
@@ -124,7 +124,7 @@ namespace AddressBook
 
             for(int index = 0; index < personDetails.Count; index++)
             {
-                if (personDetails[index].getFirstName().Equals(firstName))
+                if (personDetails[index].firstName.Equals(firstName))
                 {
                     personDetails.RemoveAt(index);
                     Console.WriteLine("Contact deleted");

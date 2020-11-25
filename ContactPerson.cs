@@ -6,14 +6,14 @@ namespace AddressBook
 {
     class ContactPerson
     {
-        public String firstName;
-        public String lastName;
-        public String address;
-        public String city;
-        public String state;
-        public long phoneNumber;
-        public long zip;
-        public ContactPerson(String firstName, String lastName, String address, String city, String state, long phoneNumber, long zip)
+         public String firstName{ get; set; }
+         public String lastName{ get; set; }
+         public String address{ get; set; }
+         public String city{ get; set; }
+         public String state{ get; set; }
+         public long phoneNumber{ get; set; }
+         public long zip{ get; set; }
+public ContactPerson(String firstName, String lastName, String address, String city, String state, long phoneNumber, long zip)
         {
             this.firstName = firstName;
             this.lastName = lastName;
@@ -23,7 +23,7 @@ namespace AddressBook
             this.phoneNumber = phoneNumber;
             this.zip = zip;
         }
-        public String getFirstName()
+      /*  public String getFirstName()
         {
             return firstName;
         }
@@ -39,7 +39,7 @@ namespace AddressBook
         {
             this.lastName = lastName;
         }
-        public String getAddress()
+     /*   public String getAddress()
         {
             return address;
         }
@@ -78,7 +78,7 @@ namespace AddressBook
         public void setZip(long zip)
         {
             this.zip = zip;
-        }
+        }*/
         
         public string toString()
         {

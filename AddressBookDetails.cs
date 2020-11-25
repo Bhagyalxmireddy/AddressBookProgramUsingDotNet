@@ -52,7 +52,7 @@ namespace AddressBook
                     Console.WriteLine(addPerson.toString());
             }
         }
-        public void editPersonDetails(ContactPerson editPerson)
+        public void editPersonDetails()
         {
             {
                 if (personDetails == null)
@@ -72,8 +72,8 @@ namespace AddressBook
                     Console.WriteLine("Enter ID of contact to Edit : ");
                     id = Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine("the person is:" + id);
-                   // foreach (ContactPerson editperson in personDetails)
-                    //{
+                    foreach (ContactPerson editPerson in personDetails)
+                    {
                         Console.WriteLine("please select the option to edit...\n \n 1. Address \n 2.city \n 3.state \n 4.zip \n 5.phone number");
                         int choice = Convert.ToInt32(Console.ReadLine());
                         switch (choice)
@@ -107,15 +107,32 @@ namespace AddressBook
                                 Console.WriteLine("enter a valid option");
                                 break;
                         }
-                    //}
+                    }
                     foreach (ContactPerson addPersonDetails in personDetails)
                     {
                         Console.WriteLine(addPersonDetails.toString());
                     }
 
                 }
+            }
+            
+        }
+        public void deletePerson()
+        {
+            Console.WriteLine("Enter FirstName to delete: ");
+            String firstName = Console.ReadLine();
 
-
+            for(int index = 0; index < personDetails.Count; index++)
+            {
+                if (personDetails[index].getFirstName().Equals(firstName))
+                {
+                    personDetails.RemoveAt(index);
+                    Console.WriteLine("Contact deleted");
+                }
+                else
+                {
+                    Console.WriteLine("Enter a valid Name");
+                }
             }
         }
     }

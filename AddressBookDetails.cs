@@ -52,7 +52,7 @@ namespace AddressBook
                     Console.WriteLine(addPerson.toString());
             }
         }
-        public void editPersonDetails()
+        public void editPersonDetails(ContactPerson editPerson)
         {
             {
                 if (personDetails == null)
@@ -72,8 +72,8 @@ namespace AddressBook
                     Console.WriteLine("Enter ID of contact to Edit : ");
                     id = Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine("the person is:" + id);
-                    foreach (ContactPerson editperson in personDetails)
-                    {
+                   // foreach (ContactPerson editperson in personDetails)
+                    //{
                         Console.WriteLine("please select the option to edit...\n \n 1. Address \n 2.city \n 3.state \n 4.zip \n 5.phone number");
                         int choice = Convert.ToInt32(Console.ReadLine());
                         switch (choice)
@@ -81,33 +81,33 @@ namespace AddressBook
                             case 1:
                                 Console.WriteLine("Enter Address: ");
                                  address = Console.ReadLine();
-                                editperson.setAddress(address);
+                                 editPerson.setAddress(address);
                                 break;
                             case 2:
                                 Console.WriteLine("Enter city: ");
                                  city = Console.ReadLine();
-                                editperson.setCity(city);
+                                editPerson.setCity(city);
                                 break;
                             case 3:
                                 Console.WriteLine("Enter state: ");
-                                 state = Console.ReadLine();
-                                editperson.setState(state);
+                                state = Console.ReadLine();
+                                editPerson.setState(state);
                                 break;
                             case 4:
                                 Console.WriteLine("Enter Zip: ");
-                                 zip = long.Parse(Console.ReadLine());
-                                editperson.setZip(zip);
+                                zip = long.Parse(Console.ReadLine());
+                                editPerson.setZip(zip);
                                 break;
                             case 5:
                                 Console.WriteLine("Enter phonenumber: ");
-                                 phoneNumber = long.Parse(Console.ReadLine());
-                                editperson.setPhoneNumber(phoneNumber);
+                                phoneNumber = long.Parse(Console.ReadLine());
+                                editPerson.setPhoneNumber(phoneNumber);
                                 break;
                             default:
                                 Console.WriteLine("enter a valid option");
                                 break;
                         }
-                    }
+                    //}
                     foreach (ContactPerson addPersonDetails in personDetails)
                     {
                         Console.WriteLine(addPersonDetails.toString());

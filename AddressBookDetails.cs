@@ -14,7 +14,7 @@ namespace AddressBook
         public String state;
         public String phoneNumber;
         public String zip;
-        String NAME = "^[a-z]{3,}$";
+        String NAME = "^[A-Z a-z]{3,}$";
         String PHONENUMBER = "^[1-9]{1}[0-9]{9}$";
         String ZIP = "^[1-9]{1}[0-9]{5}$";
 
@@ -53,10 +53,11 @@ namespace AddressBook
             Console.WriteLine("\n Enter Zip : ");
             zip = Console.ReadLine();
             validatingPersonDetails(firstName,lastName,phoneNumber,zip);
-            personDetails.Add(new ContactPerson(firstName, lastName, address, city, state, phoneNumber, zip));
+
+         //   personDetails.Add(new ContactPerson(firstName, lastName, address, city, state, phoneNumber, zip));
             foreach (ContactPerson addPerson in personDetails)
                 Console.WriteLine(addPerson.toString());
-            Console.WriteLine("Person Details  Added Successfully \n");
+           // Console.WriteLine("Person Details  Added Successfully \n");
         }
 
         public void printPersonDetails()

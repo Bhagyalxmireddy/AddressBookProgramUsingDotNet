@@ -18,10 +18,11 @@ namespace AddressBook
         String PHONENUMBER = "^[1-9]{1}[0-9]{9}$";
         String ZIP = "^[1-9]{1}[0-9]{5}$";
 
+        NLog nLog = new NLog();
 
         List<ContactPerson> personDetails = new List<ContactPerson>();
+        Dictionary<String, List<ContactPerson>> personDictionary = new Dictionary<String, List<ContactPerson>>();
 
-        NLog nLog = new NLog();
         public void validatingPersonDetails(String firstName,String lastName, String phoneNumber,String zip)
         {
             if(Regex.IsMatch(firstName, NAME) && (Regex.IsMatch(lastName, NAME)) && (Regex.IsMatch(phoneNumber, PHONENUMBER)) && (Regex.IsMatch(zip, ZIP)))
@@ -57,6 +58,7 @@ namespace AddressBook
          //   personDetails.Add(new ContactPerson(firstName, lastName, address, city, state, phoneNumber, zip));
             foreach (ContactPerson addPerson in personDetails)
                 Console.WriteLine(addPerson.toString());
+            personDictionary.Add(firstName, personDetails);
             // Console.WriteLine("Person Details  Added Successfully \n");
             nLog.logDebug(" addPersondetails Debug succsufully");
         }
@@ -70,14 +72,14 @@ namespace AddressBook
             else
             {
                 foreach (ContactPerson addPerson in personDetails)
-                    Console.WriteLine(addPerson.toString());
-                nLog.logDebug("PrintPersonDetails Debug succesfully");
+                    Console.WriteLine(addPerson.toString());       
             }
+            nLog.logDebug("PrintPersonDetails Debug succesfully");
         }
         public void editPersonDetails()
         {
             {
-                if (personDetails == null)
+                if (personDetails.Count == 0)
                 {
                     Console.WriteLine("There are no contacts to edit");
                 }
@@ -133,8 +135,9 @@ namespace AddressBook
                     foreach (ContactPerson addPersonDetails in personDetails)
                     {
                         Console.WriteLine(addPersonDetails.toString());
-                        nLog.logDebug("EditPersonDetails Debug succesfully");
+                      
                     }
+                    nLog.logDebug("EditPersonDetails Debug succesfully");
 
                 }
             }

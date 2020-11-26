@@ -21,7 +21,7 @@ namespace AddressBook
 
         List<ContactPerson> personDetails = new List<ContactPerson>();
 
-
+        NLog nLog = new NLog();
         public void validatingPersonDetails(String firstName,String lastName, String phoneNumber,String zip)
         {
             if(Regex.IsMatch(firstName, NAME) && (Regex.IsMatch(lastName, NAME)) && (Regex.IsMatch(phoneNumber, PHONENUMBER)) && (Regex.IsMatch(zip, ZIP)))
@@ -57,12 +57,13 @@ namespace AddressBook
          //   personDetails.Add(new ContactPerson(firstName, lastName, address, city, state, phoneNumber, zip));
             foreach (ContactPerson addPerson in personDetails)
                 Console.WriteLine(addPerson.toString());
-           // Console.WriteLine("Person Details  Added Successfully \n");
+            // Console.WriteLine("Person Details  Added Successfully \n");
+            nLog.logDebug(" addPersondetails Debug succsufully");
         }
 
         public void printPersonDetails()
         {
-            if (personDetails == null)
+            if (personDetails.Count == 0)
             {
                 Console.WriteLine("There are no contact to print");
             }
@@ -70,6 +71,7 @@ namespace AddressBook
             {
                 foreach (ContactPerson addPerson in personDetails)
                     Console.WriteLine(addPerson.toString());
+                nLog.logDebug("PrintPersonDetails Debug succesfully");
             }
         }
         public void editPersonDetails()
@@ -131,6 +133,7 @@ namespace AddressBook
                     foreach (ContactPerson addPersonDetails in personDetails)
                     {
                         Console.WriteLine(addPersonDetails.toString());
+                        nLog.logDebug("EditPersonDetails Debug succesfully");
                     }
 
                 }
@@ -148,6 +151,7 @@ namespace AddressBook
                 {
                     personDetails.RemoveAt(index);
                     Console.WriteLine("Contact deleted");
+                    nLog.logDebug("DeletePersonDetails Debug succesfully");
                 }
                 else
                 {

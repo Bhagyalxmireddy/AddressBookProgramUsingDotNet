@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "O6/Qw5+gEbypqIdMRup24SMP53ustgFxrzsSo2GVwAwfwoSHYmE+Sp+i0DQRCkBXk9QD5gAkqxKnp1YhM9Xc2w==",
+  "dgSpecHash": "Q2nTDh7ZBptWYKnYjS/4IpY4zNPFkJQ9YGdMtZU7ledaW/BgvTUDPCnbfmfs7cZw1dCSg0zloAscUFzaQItu8Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\USER\\source\\repos\\AddressBook\\AddressBook.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\USER\\.nuget\\packages\\nlog\\4.7.5\\nlog.4.7.5.nupkg.sha512"
+  ],
   "logs": []
 }

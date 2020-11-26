@@ -9,7 +9,8 @@ namespace AddressBook
             int choice1 = 0;
             Console.WriteLine("Welcome to Address Book Program ");
             AddressBookDetails addressBook = new AddressBookDetails();
-            while (true)
+            bool i = true;
+            while (i)
             {
                 Console.WriteLine("1.AddPersonDetails From AddressBook ");
                 Console.WriteLine("2.printPersonDetails From AddressBook ");
@@ -30,6 +31,9 @@ namespace AddressBook
                         break;
                     case 4:
                         addressBook.deletePerson();
+                        break;
+                    case 5:
+                        i = false;
                         break;
                     default:
                         Console.WriteLine("Choose proper option");

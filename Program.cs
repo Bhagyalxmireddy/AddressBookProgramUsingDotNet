@@ -16,7 +16,8 @@ namespace AddressBook
                 Console.WriteLine("2.printPersonDetails From AddressBook ");
                 Console.WriteLine("3.EditPersonDetails From AddressBook ");
                 Console.WriteLine("4.DeletePersonDetails From AddressBook");
-                Console.WriteLine("5.Exit ");
+                Console.WriteLine("5.Search Person By city or state");
+                Console.WriteLine("6.Exit ");
                 try
                 {
                     choice1 = Convert.ToInt32(Console.ReadLine());
@@ -35,6 +36,9 @@ namespace AddressBook
                             addressBook.deletePerson();
                             break;
                         case 5:
+                            addressBook.search_ByCity_State();
+                            break;
+                        case 6:
                             i = false;
                             break;
                         default:

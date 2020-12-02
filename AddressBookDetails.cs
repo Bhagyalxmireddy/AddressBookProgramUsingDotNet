@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Collections;
 
 namespace AddressBook
 {
@@ -172,6 +174,33 @@ namespace AddressBook
                 else
                 {
                     Console.WriteLine("Enter a valid Name");
+                }
+            }
+        }
+        public void search_ByCity_State()
+        {
+            int choice;
+            String city, state;
+            Console.WriteLine("\n\t 1.Search By City :" + "\n\t 2.Search By State : ");
+            choice = Convert.ToInt32(Console.ReadLine());
+            if(choice == 1)
+            {
+                Console.WriteLine("Enter city : ");
+                string cityName = Console.ReadLine();
+                foreach(ContactPerson person in personDetails.FindAll(Index => Index.city.Equals(cityName)).Capacity)
+                {
+                    Console.WriteLine(person.ToString());
+                    nLog.logDebug("Search ByCity Debug succesfully");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Enter state : ");
+                string stateName = Console.ReadLine();
+                foreach(ContactPerson person in personDetails.FindAll(Index => Index.state.Equals(stateName)).ToList())
+                {
+                    Console.WriteLine(person.ToString());
+                    nLog.logDebug("Search ByState Debug succesfully");
                 }
             }
         }

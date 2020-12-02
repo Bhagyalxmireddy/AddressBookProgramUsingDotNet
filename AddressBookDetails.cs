@@ -38,28 +38,41 @@ namespace AddressBook
 
         public void addPersonDetails()
         {
-            Console.WriteLine("Enter person Details :");
-            Console.WriteLine("\n Enter FirstName : ");
-            firstName = Console.ReadLine();
-            Console.WriteLine("\n Enter LastName : ");
-            lastName = Console.ReadLine();
-            Console.WriteLine("\n Enter Address : ");
-            address = Console.ReadLine();
-            Console.WriteLine("\n Enter City : ");
-            city = Console.ReadLine();
-            Console.WriteLine("\n Enter State : ");
-            state = Console.ReadLine();
-            Console.WriteLine("\n Enter MobileNumber : ");
-            phoneNumber = Console.ReadLine();
-            Console.WriteLine("\n Enter Zip : ");
-            zip = Console.ReadLine();
-            validatingPersonDetails(firstName,lastName,phoneNumber,zip);
+            try {
+                    Console.WriteLine("Enter person Details :");
+                    Console.WriteLine("\n Enter FirstName : ");
+                    firstName = Console.ReadLine();
+                     if (personDictionary.ContainsKey(firstName))
+                    {
+                        Console.WriteLine("Person already exist,enter different Name");
+                    }
+                    else
+                    {
+                        Console.WriteLine("\n Enter LastName : ");
+                        lastName = Console.ReadLine();
+                        Console.WriteLine("\n Enter Address : ");
+                        address = Console.ReadLine();
+                        Console.WriteLine("\n Enter City : ");
+                        city = Console.ReadLine();
+                        Console.WriteLine("\n Enter State : ");
+                        state = Console.ReadLine();
+                        Console.WriteLine("\n Enter MobileNumber : ");
+                        phoneNumber = Console.ReadLine();
+                        Console.WriteLine("\n Enter Zip : ");
+                        zip = Console.ReadLine();
+                        validatingPersonDetails(firstName, lastName, phoneNumber, zip);
 
-         //   personDetails.Add(new ContactPerson(firstName, lastName, address, city, state, phoneNumber, zip));
-            foreach (ContactPerson addPerson in personDetails)
-                Console.WriteLine(addPerson.toString());
-            personDictionary.Add(firstName, personDetails);
-            // Console.WriteLine("Person Details  Added Successfully \n");
+                        //   personDetails.Add(new ContactPerson(firstName, lastName, address, city, state, phoneNumber, zip));
+                        foreach (ContactPerson addPerson in personDetails)
+                            Console.WriteLine(addPerson.toString());
+                        personDictionary.Add(firstName, personDetails);
+                        // Console.WriteLine("Person Details  Added Successfully \n");
+                    }
+            }
+            catch (AddressBookCustomException e)
+            {
+                throw new AddressBookCustomException(e.Message);
+            }
             nLog.logDebug(" addPersondetails Debug succsufully");
         }
 

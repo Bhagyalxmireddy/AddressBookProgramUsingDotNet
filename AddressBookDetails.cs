@@ -24,7 +24,7 @@ namespace AddressBook
 
         List<ContactPerson> personDetails = new List<ContactPerson>();
         Dictionary<String, List<ContactPerson>> personDictionary = new Dictionary<String, List<ContactPerson>>();
-
+        List<int> personIndex = new List<int>();
         public void validatingPersonDetails(String firstName,String lastName, String phoneNumber,String zip)
         {
             if(Regex.IsMatch(firstName, NAME) && (Regex.IsMatch(lastName, NAME)) && (Regex.IsMatch(phoneNumber, PHONENUMBER)) && (Regex.IsMatch(zip, ZIP)))
@@ -107,44 +107,50 @@ namespace AddressBook
                     foreach (ContactPerson contact in personDetails)
                     {
                         Console.WriteLine("ID: " + personDetails.IndexOf(contact) + ":" + contact.firstName);
+                        personIndex.Add(personDetails.IndexOf(contact));
                     }
                     Console.WriteLine("Enter ID of contact to Edit : ");
                     id = Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine("the person is:" + id);
+                    int searchIndex = personIndex.Find(x => x.Equals(id));
+
                     foreach (ContactPerson editPerson in personDetails)
                     {
                         Console.WriteLine("please select the option to edit...\n \n 1. Address \n 2.city \n 3.state \n 4.zip \n 5.phone number");
                         int choice = Convert.ToInt32(Console.ReadLine());
-                        switch (choice)
+                        if (searchIndex == id)
                         {
-                            case 1:
-                                Console.WriteLine("Enter Address: ");
-                                 address = Console.ReadLine();
-                                 editPerson.address = address;
-                                break;
-                            case 2:
-                                Console.WriteLine("Enter city: ");
-                                 city = Console.ReadLine();
-                                editPerson.city = city;
-                                break;
-                            case 3:
-                                Console.WriteLine("Enter state: ");
-                                state = Console.ReadLine();
-                                editPerson.state = state;
-                                break;
-                            case 4:
-                                Console.WriteLine("Enter Zip: ");
-                                zip = Console.ReadLine();
-                                editPerson.zip = zip;
-                                break;
-                            case 5:
-                                Console.WriteLine("Enter phonenumber: ");
-                                phoneNumber = Console.ReadLine();
-                                editPerson.phoneNumber = phoneNumber;
-                                break;
-                            default:
-                                Console.WriteLine("enter a valid option");
-                                break;
+                            switch (choice)
+                            {
+                                case 1:
+                                    Console.WriteLine("Enter Address: ");
+                                    address = Console.ReadLine();
+                                    editPerson.address = address;
+                                    break;
+                                case 2:
+                                    Console.WriteLine("Enter city: ");
+                                    city = Console.ReadLine();
+                                    editPerson.city = city;
+                                    break;
+                                case 3:
+                                    Console.WriteLine("Enter state: ");
+                                    state = Console.ReadLine();
+                                    editPerson.state = state;
+                                    break;
+                                case 4:
+                                    Console.WriteLine("Enter Zip: ");
+                                    zip = Console.ReadLine();
+                                    editPerson.zip = zip;
+                                    break;
+                                case 5:
+                                    Console.WriteLine("Enter phonenumber: ");
+                                    phoneNumber = Console.ReadLine();
+                                    editPerson.phoneNumber = phoneNumber;
+                                    break;
+                                default:
+                                    Console.WriteLine("enter a valid option");
+                                    break;
+                            }
                         }
                     }
                     foreach (ContactPerson addPersonDetails in personDetails)
@@ -179,28 +185,31 @@ namespace AddressBook
         }
         public void search_ByCity_State()
         {
-            int choice;
-            String city, state;
-            Console.WriteLine("\n\t 1.Search By City :" + "\n\t 2.Search By State : ");
-            choice = Convert.ToInt32(Console.ReadLine());
-            if(choice == 1)
+            if (personDictionary.Count == 0)
             {
-                Console.WriteLine("Enter city : ");
-                string cityName = Console.ReadLine();
-                foreach(ContactPerson person in personDetails.FindAll(Index => Index.city.Equals(cityName)).Capacity)
-                {
-                    Console.WriteLine(person.ToString());
-                    nLog.logDebug("Search ByCity Debug succesfully");
-                }
+                Console.WriteLine("There are no contacts to search");
             }
             else
             {
-                Console.WriteLine("Enter state : ");
-                string stateName = Console.ReadLine();
-                foreach(ContactPerson person in personDetails.FindAll(Index => Index.state.Equals(stateName)).ToList())
+                int choice;
+                Console.WriteLine("\n\t 1.Search By City :" + "\n\t 2.Search By State : ");
+                choice = Convert.ToInt32(Console.ReadLine());
+                switch (choice)
                 {
-                    Console.WriteLine(person.ToString());
-                    nLog.logDebug("Search ByState Debug succesfully");
+                    case 1:
+                        Console.WriteLine("Enter city : ");
+                        string cityName = Console.ReadLine();
+                        foreach (ContactPerson person in personDetails.FindAll(c => c.city.Equals(cityName)).ToList())
+                            Console.WriteLine(person.toString());
+                        nLog.logDebug("Search ByCity Debug succesfully");
+                        break;
+                    case 2:
+                        Console.WriteLine("Enter state : ");
+                        string stateName = Console.ReadLine();
+                        foreach (ContactPerson person in personDetails.FindAll(s => s.state.Equals(stateName)).ToList())
+                            Console.WriteLine(person.toString());
+                        nLog.logDebug("Search ByState Debug succesfully");
+                        break;
                 }
             }
         }

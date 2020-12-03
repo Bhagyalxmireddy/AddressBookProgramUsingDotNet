@@ -45,6 +45,9 @@ namespace AddressBook
                             Console.WriteLine("Choose proper option");
                             break;
                     }
+                }catch(System.FormatException fe)
+                {
+                    Console.WriteLine(fe.Message);
                 }
                 catch(AddressBookCustomException ex)
                 {

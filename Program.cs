@@ -16,6 +16,7 @@ namespace AddressBook
                 Console.WriteLine("2.printPersonDetails From AddressBook ");
                 Console.WriteLine("3.EditPersonDetails From AddressBook ");
                 Console.WriteLine("4.DeletePersonDetails From AddressBook");
+                Console.WriteLine("5.Search Person By city or state");
                 Console.WriteLine("6.ViewPerson By City or State");
                 Console.WriteLine("7.Exit ");
                 try
@@ -35,6 +36,9 @@ namespace AddressBook
                         case 4:
                             addressBook.deletePerson();
                             break;
+                        case 5:
+                            addressBook.search_ByCity_State();
+                            break;
                         case 6:
                             addressBook.View_ByState_City();
                             break;
@@ -47,7 +51,7 @@ namespace AddressBook
                     }
                 }catch(System.FormatException fe)
                 {
-                    Console.WriteLine(fe);
+                    Console.WriteLine(fe.Message);
                 }
                 
                 catch(AddressBookCustomException ex)

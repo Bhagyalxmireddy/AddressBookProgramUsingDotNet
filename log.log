@@ -52,3 +52,7 @@
 2020-12-03 23:14:53.6870|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
 2020-12-03 23:15:31.8237|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
 2020-12-03 23:16:06.4800|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
+2020-12-04 00:13:55.3554|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
+2020-12-04 00:14:19.6904|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
+2020-12-04 00:14:40.9115|DEBUG|AddressBook.NLog|EditPersonDetails Debug succesfully
+2020-12-04 00:14:46.1704|DEBUG|AddressBook.NLog|PrintPersonDetails Debug succesfully

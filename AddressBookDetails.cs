@@ -103,26 +103,28 @@ namespace AddressBook
                 }
                 else
                 {
-                    String address, city, state;
-                    String phoneNumber, zip;
-                    int id;
+                    /*  String address, city, state;
+                      String phoneNumber, zip;
+                      int id;
 
-                    foreach (ContactPerson contact in personDetails)
-                    {
-                        Console.WriteLine("ID: " + personDetails.IndexOf(contact) + ":" + contact.firstName);
-                        personIndex.Add(personDetails.IndexOf(contact));
-                    }
-                    Console.WriteLine("Enter ID of contact to Edit : ");
-                    id = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine("the person is:" + id);
-                    int searchIndex = personIndex.Find(x => x.Equals(id));
-
+                      foreach (ContactPerson contact in personDetails)
+                      {
+                          Console.WriteLine("ID: " + personDetails.IndexOf(contact) + ":" + contact.firstName);
+                          personIndex.Add(personDetails.IndexOf(contact));
+                      }
+                      Console.WriteLine("Enter ID of contact to Edit : ");
+                      id = Convert.ToInt32(Console.ReadLine());
+                      Console.WriteLine("the person is:" + id);
+                      int searchIndex = personIndex.Find(x => x.Equals(id));*/
+                    Console.WriteLine("Enter FirstName to edit ");
+                    String value = Console.ReadLine();
                     foreach (ContactPerson editPerson in personDetails)
                     {
-                        Console.WriteLine("please select the option to edit...\n \n 1. Address \n 2.city \n 3.state \n 4.zip \n 5.phone number");
-                        int choice = Convert.ToInt32(Console.ReadLine());
-                        if (searchIndex == id)
+                        if (value.Equals(editPerson.firstName))
                         {
+                            Console.WriteLine("please select the option to edit...\n \n 1. Address \n 2.city \n 3.state \n 4.zip \n 5.phone number");
+                            int choice = Convert.ToInt32(Console.ReadLine());
+
                             switch (choice)
                             {
                                 case 1:
@@ -156,11 +158,11 @@ namespace AddressBook
                             }
                         }
                     }
-                    foreach (ContactPerson addPersonDetails in personDetails)
+                  /*  foreach (ContactPerson addPersonDetails in personDetails)
                     {
                         Console.WriteLine(addPersonDetails.toString());
 
-                    }
+                    }*/
                     nLog.logDebug("EditPersonDetails Debug succesfully");
 
                 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -22,6 +23,8 @@ namespace AddressBook
 
         List<ContactPerson> personDetails = new List<ContactPerson>();
         Dictionary<String, List<ContactPerson>> personDictionary = new Dictionary<String, List<ContactPerson>>();
+        Dictionary<String, String> cityDictionary = new Dictionary<string, string>();
+        Dictionary<String, String> stateDictionary = new Dictionary<string, string>();
 
         public void validatingPersonDetails(String firstName,String lastName, String phoneNumber,String zip)
         {
@@ -173,6 +176,35 @@ namespace AddressBook
                 {
                     Console.WriteLine("Enter a valid Name");
                 }
+            }
+        }
+        public void View_ByState_City()
+        {
+            Console.WriteLine("Choose how you want to view by city or state\n" + "1. city\n" + "2. state");
+            try
+            {
+                int choose = Convert.ToInt32(Console.ReadLine());
+                switch (choose)
+                {
+                    case 1:
+                        Console.WriteLine("Enter city name to view person");
+                        string viewCity = Console.ReadLine();
+                        var searchCity = cityDictionary.Where(c => c.Value.Equals(viewCity));
+                        foreach (var result in searchCity)
+                            Console.WriteLine("Firstname:{0} , City:{1}", result.Key, result.Value);
+                        break;
+                    case 2:
+                        Console.WriteLine("Enter state name to view person");
+                        string viewState = Console.ReadLine();
+                        var searchState = stateDictionary.Where(s => s.Value.Equals(viewState));
+                        foreach (var result in searchState)
+                            Console.WriteLine("Firstname:{0} , State:{1}", result.Key, result.Value);
+                        break;
+                }
+            }
+            catch (System.FormatException)
+            {
+                throw new AddressBookCustomException("Please enter correct input");
             }
         }
     }

@@ -18,7 +18,8 @@ namespace AddressBook
                 Console.WriteLine("4.DeletePersonDetails From AddressBook");
                 Console.WriteLine("5.Search Person By city or state");
                 Console.WriteLine("6.ViewPerson By City or State");
-                Console.WriteLine("7.Exit ");
+                Console.WriteLine("7.Count of ContactPersons BY city or state");
+                Console.WriteLine("8.Exit ");
                 try
                 {
                     choice1 = Convert.ToInt32(Console.ReadLine());
@@ -43,6 +44,9 @@ namespace AddressBook
                             addressBook.View_ByState_City();
                             break;
                         case 7:
+                            addressBook.CountPerson();
+                            break;
+                        case 8:
                             i = false;
                             break;
                         default:

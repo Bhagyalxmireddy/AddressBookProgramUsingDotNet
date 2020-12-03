@@ -246,5 +246,32 @@ namespace AddressBook
                 throw new AddressBookCustomException("Please enter correct input");
             }
         }
+        public void CountPerson()
+        {
+            Console.WriteLine("Choose how you want to count by city or state\n" + "Press 1 for city\n" + "Press 2 for state");
+            try
+            {
+                int choose = Convert.ToInt32(Console.ReadLine());
+                switch (choose)
+                {
+                    case 1:
+                        Console.WriteLine("Enter city name to search");
+                        string countCity = Console.ReadLine();
+                        int countByCity = personDetails.FindAll(s => s.city.Equals(countCity)).Count;
+                        Console.WriteLine("No of persons present in addressbook for " + countCity + " is::" + countByCity);
+                        break;
+                    case 2:
+                        Console.WriteLine("Enter state name to search");
+                        string countState = Console.ReadLine();
+                        int countByState = personDetails.FindAll(s => s.state.Equals(countState)).Count;
+                        Console.WriteLine("No of persons present in addressbook for " + countState + " is::" + countByState);
+                        break;
+                }
+            }
+            catch (System.FormatException)
+            {
+                throw new AddressBookCustomException("Please enter correct input");
+            }
+        }
     }
 }

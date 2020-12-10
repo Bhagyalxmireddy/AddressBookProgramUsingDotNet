@@ -19,7 +19,8 @@ namespace AddressBook
                 Console.WriteLine("5.Search Person By city or state");
                 Console.WriteLine("6.ViewPerson By City or State");
                 Console.WriteLine("7.Count of ContactPersons BY city or state");
-                Console.WriteLine("8.Exit ");
+                Console.WriteLine("8.Sort the persons by firstname");
+                Console.WriteLine("9.Exit ");
                 try
                 {
                     choice1 = Convert.ToInt32(Console.ReadLine());
@@ -47,6 +48,9 @@ namespace AddressBook
                             addressBook.CountPerson();
                             break;
                         case 8:
+                            addressBook.sort_By_FirstName();
+                            break;
+                        case 9:
                             i = false;
                             break;
                         default:

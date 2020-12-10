@@ -6,14 +6,12 @@
 2020-12-02 21:16:49.7799|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
 2020-12-02 21:30:02.6815|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
 2020-12-02 21:30:36.1637|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
-<<<<<<< HEAD
 2020-12-03 19:27:34.2191|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
 2020-12-03 19:29:04.2407|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
 2020-12-03 19:29:08.8157|DEBUG|AddressBook.NLog|PrintPersonDetails Debug succesfully
 2020-12-03 19:39:14.1472|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
 2020-12-03 19:46:11.8981|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
 2020-12-03 19:47:15.1314|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
-=======
 2020-12-03 20:10:07.3272|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
 2020-12-03 20:10:45.5556|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
 2020-12-03 20:10:57.0985|DEBUG|AddressBook.NLog|Search ByCity Debug succesfully
@@ -40,7 +38,6 @@
 2020-12-03 22:41:30.9697|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
 2020-12-03 22:41:55.0279|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
 2020-12-03 22:42:30.3418|DEBUG|AddressBook.NLog|EditPersonDetails Debug succesfully
->>>>>>> 50b04b5dd72f34f43518490616d83c0b5f4255d4
 2020-12-03 22:52:04.3172|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
 2020-12-03 22:52:23.6422|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
 2020-12-03 22:53:15.8943|DEBUG|AddressBook.NLog|Search ByCity Debug succesfully
@@ -56,3 +53,23 @@
 2020-12-04 00:14:19.6904|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
 2020-12-04 00:14:40.9115|DEBUG|AddressBook.NLog|EditPersonDetails Debug succesfully
 2020-12-04 00:14:46.1704|DEBUG|AddressBook.NLog|PrintPersonDetails Debug succesfully
+2020-12-04 10:01:55.4072|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
+2020-12-04 10:02:17.4683|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
+2020-12-04 10:06:48.8607|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
+2020-12-04 10:07:15.4156|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
+2020-12-04 10:56:52.6489|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
+2020-12-04 10:57:16.8855|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
+2020-12-04 11:11:48.1127|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
+2020-12-04 11:11:54.2661|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
+2020-12-04 11:17:20.5185|DEBUG|AddressBook.NLog|EditPersonDetails Debug succesfully
+2020-12-04 11:17:23.4473|DEBUG|AddressBook.NLog|PrintPersonDetails Debug succesfully
+2020-12-10 20:49:12.7473|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
+2020-12-10 20:50:36.0755|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
+2020-12-10 20:51:46.5361|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
+2020-12-10 20:52:42.7149|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
+2020-12-10 20:54:16.8413|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
+2020-12-10 20:55:12.0424|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
+2020-12-10 20:58:49.2590|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
+2020-12-10 21:05:24.7778|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
+2020-12-10 21:33:48.6865|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
+2020-12-10 21:34:15.2889|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully

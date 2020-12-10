@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Collections;
 
+
 namespace AddressBook
 {
     class AddressBookDetails
@@ -33,6 +34,9 @@ namespace AddressBook
             if (Regex.IsMatch(firstName, NAME) && (Regex.IsMatch(lastName, NAME)) && (Regex.IsMatch(phoneNumber, PHONENUMBER)) && (Regex.IsMatch(zip, ZIP)))
             {
                 personDetails.Add(new ContactPerson(firstName, lastName, address, city, state, phoneNumber, zip));
+                personDictionary.Add(firstName, personDetails);
+                cityDictionary.Add(firstName,  city);
+                stateDictionary.Add(firstName, state);
             }
             else
             {
@@ -67,18 +71,18 @@ namespace AddressBook
                     zip = Console.ReadLine();
                     validatingPersonDetails(firstName, lastName, phoneNumber, zip);
 
-                    //   personDetails.Add(new ContactPerson(firstName, lastName, address, city, state, phoneNumber, zip));
+                    //personDetails.Add(new ContactPerson(firstName, lastName, address, city, state, phoneNumber, zip));
                     foreach (ContactPerson addPerson in personDetails)
                         Console.WriteLine(addPerson.toString());
-                    personDictionary.Add(firstName, personDetails);
-                    // Console.WriteLine("Person Details  Added Successfully \n");
                 }
             }
+            
             catch (AddressBookCustomException e)
             {
                 throw new AddressBookCustomException(e.Message);
             }
             nLog.logDebug(" addPersondetails Debug succsufully");
+
         }
 
         public void printPersonDetails()
@@ -103,19 +107,7 @@ namespace AddressBook
                 }
                 else
                 {
-                    /*  String address, city, state;
-                      String phoneNumber, zip;
-                      int id;
-
-                      foreach (ContactPerson contact in personDetails)
-                      {
-                          Console.WriteLine("ID: " + personDetails.IndexOf(contact) + ":" + contact.firstName);
-                          personIndex.Add(personDetails.IndexOf(contact));
-                      }
-                      Console.WriteLine("Enter ID of contact to Edit : ");
-                      id = Convert.ToInt32(Console.ReadLine());
-                      Console.WriteLine("the person is:" + id);
-                      int searchIndex = personIndex.Find(x => x.Equals(id));*/
+                    
                     Console.WriteLine("Enter FirstName to edit ");
                     String value = Console.ReadLine();
                     foreach (ContactPerson editPerson in personDetails)
@@ -156,13 +148,9 @@ namespace AddressBook
                                     Console.WriteLine("enter a valid option");
                                     break;
                             }
+                            printPersonDetails();
                         }
                     }
-                  /*  foreach (ContactPerson addPersonDetails in personDetails)
-                    {
-                        Console.WriteLine(addPersonDetails.toString());
-
-                    }*/
                     nLog.logDebug("EditPersonDetails Debug succesfully");
 
                 }
@@ -221,7 +209,7 @@ namespace AddressBook
             }
         public void View_ByState_City()
         {
-            Console.WriteLine("Choose how you want to view by city or state\n" + "1. city\n" + "2. state");
+            Console.WriteLine(" Enter a option to view by city or state\n" + "1. city\n" + "2. state");
             try
             {
                 int choose = Convert.ToInt32(Console.ReadLine());
@@ -274,6 +262,12 @@ namespace AddressBook
             {
                 throw new AddressBookCustomException("Please enter correct input");
             }
+        }
+        public void sort_By_FirstName()
+        {
+           var name = personDetails.OrderBy(name => name.firstName);
+            foreach (var sort in name)
+                Console.WriteLine(sort.toString());
         }
     }
 }

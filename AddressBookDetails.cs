@@ -269,5 +269,48 @@ namespace AddressBook
             foreach (var sort in name)
                 Console.WriteLine(sort.toString());
         }
+        public void sort_By_StateCity_Zip()
+        {
+            if (personDictionary.Count == 0)
+            {
+                Console.WriteLine("There are no contacts to search");
+            }
+            else
+            {
+                int choice;
+                Console.WriteLine("\n\t 1.Sort By City :" + "\n\t 2.Sort By State : " + "\n\t 3.Sort By Zip");
+                choice = Convert.ToInt32(Console.ReadLine());
+                switch (choice)
+                {
+                    case 1:
+                        Console.WriteLine("Enter city : ");
+                        string cityName = Console.ReadLine();
+                        var CityName = personDetails.OrderBy(name => name.city);
+                        foreach (var sort in CityName)
+                            Console.WriteLine(sort.toString());
+                        nLog.logDebug("sort ByCity Debug succesfully");
+                        break;
+                    case 2:
+                        Console.WriteLine("Enter state : ");
+                        string stateName = Console.ReadLine();
+                        var statename = personDetails.OrderBy(name => name.state);
+                        foreach (var sort in statename)
+                            Console.WriteLine(sort.toString());
+                        nLog.logDebug("Sort ByState Debug succesfully");
+                        break;
+                    case 3:
+                        Console.WriteLine("Enter zip : ");
+                        string Zip = Console.ReadLine();
+                        var zip = personDetails.OrderBy(name => name.zip);
+                        foreach (var sort in zip)
+                            Console.WriteLine(sort.toString());
+                        nLog.logDebug("Sort ByZip Debug succesfully");
+                        break;
+                    default:
+                        Console.WriteLine("Enter a valid option ");
+                        break;
+                }
+            }
+        }
     }
 }

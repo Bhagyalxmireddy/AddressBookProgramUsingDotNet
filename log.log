@@ -73,3 +73,10 @@
 2020-12-10 21:05:24.7778|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
 2020-12-10 21:33:48.6865|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
 2020-12-10 21:34:15.2889|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
+2020-12-10 21:53:18.0070|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
+2020-12-10 21:53:57.9306|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
+2020-12-10 21:55:08.1011|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
+2020-12-10 21:55:40.1639|DEBUG|AddressBook.NLog| addPersondetails Debug succsufully
+2020-12-10 21:56:19.5913|DEBUG|AddressBook.NLog|PrintPersonDetails Debug succesfully
+2020-12-10 21:56:19.6195|DEBUG|AddressBook.NLog|EditPersonDetails Debug succesfully
+2020-12-10 21:56:50.7265|DEBUG|AddressBook.NLog|Sort ByZip Debug succesfully

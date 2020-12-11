@@ -48,9 +48,9 @@ namespace AddressBook
 
         public void addPersonDetails(string fileName)
         {
-           
-            personDetails = read_Write.ReadFromJson(fileName);
-            Console.WriteLine(personDetails.Count);
+            //personDetails = read_Write.ReadFromJson(fileName);
+            // personDetails = read_Write.ReadData(fileName);
+            //Console.WriteLine(personDetails.Count);
             try {
                 Console.WriteLine("Enter person Details :");
                 Console.WriteLine("\n Enter FirstName : ");
@@ -74,7 +74,8 @@ namespace AddressBook
                     Console.WriteLine("\n Enter Zip : ");
                     zip = Console.ReadLine();
                     validatingPersonDetails(firstName, lastName, phoneNumber, zip);
-                    read_Write.WriteToJson(fileName,personDetails);
+                    read_Write.writeCsv(fileName,personDetails);
+                    read_Write.WriteToJson(fileName, personDetails);
 
                     //personDetails.Add(new ContactPerson(firstName, lastName, address, city, state, phoneNumber, zip));
                     foreach (ContactPerson addPerson in personDetails)
@@ -332,6 +333,13 @@ namespace AddressBook
         public void sort_By_FirstNameusingJson(string fileName)
         {
             personDetails = read_Write.ReadFromJson(fileName);
+            var name = personDetails.OrderBy(name => name.firstName);
+            foreach (var sort in name)
+                Console.WriteLine(sort.toString());
+        }
+        public void sort_By_FirstNameusingcsv(string fileName)
+        {
+            personDetails = read_Write.ReadCsv(fileName);
             var name = personDetails.OrderBy(name => name.firstName);
             foreach (var sort in name)
                 Console.WriteLine(sort.toString());

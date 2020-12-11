@@ -18,3 +18,5 @@ C:\Users\USER\source\repos\AddressBook\bin\Debug\netcoreapp3.1\NLog.Config
 C:\Users\USER\source\repos\AddressBook\bin\Debug\netcoreapp3.1\AddressBook.txt
 C:\Users\USER\source\repos\AddressBook\bin\Debug\netcoreapp3.1\Json.Net.dll
 C:\Users\USER\source\repos\AddressBook\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\USER\source\repos\AddressBook\bin\Debug\netcoreapp3.1\AddressBook.csv
+C:\Users\USER\source\repos\AddressBook\bin\Debug\netcoreapp3.1\CsvHelper.dll

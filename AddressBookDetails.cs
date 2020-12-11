@@ -22,6 +22,7 @@ namespace AddressBook
         String ZIP = "^[1-9]{1}[0-9]{5}$";
 
         NLog nLog = new NLog();
+        FileRead_Write read_Write = new FileRead_Write();
 
         List<ContactPerson> personDetails = new List<ContactPerson>();
         Dictionary<String, List<ContactPerson>> personDictionary = new Dictionary<String, List<ContactPerson>>();
@@ -45,8 +46,10 @@ namespace AddressBook
         }
 
 
-        public void addPersonDetails()
+        public void addPersonDetails(string fileName)
         {
+            personDetails = read_Write.ReadData(fileName);
+            Console.WriteLine(personDetails.Count);
             try {
                 Console.WriteLine("Enter person Details :");
                 Console.WriteLine("\n Enter FirstName : ");
@@ -81,12 +84,14 @@ namespace AddressBook
             {
                 throw new AddressBookCustomException(e.Message);
             }
+            read_Write.WriteText(fileName, personDetails);
             nLog.logDebug(" addPersondetails Debug succsufully");
 
         }
 
-        public void printPersonDetails()
+        public void printPersonDetails(string fileName)
         {
+            personDetails = read_Write.ReadData(fileName);
             if (personDetails.Count == 0)
             {
                 Console.WriteLine("There are no contact to print");
@@ -98,8 +103,9 @@ namespace AddressBook
             }
             nLog.logDebug("PrintPersonDetails Debug succesfully");
         }
-        public void editPersonDetails()
+        public void editPersonDetails(string fileName)
         {
+            personDetails = read_Write.ReadData(fileName);
             {
                 if (personDetails.Count == 0)
                 {
@@ -148,7 +154,8 @@ namespace AddressBook
                                     Console.WriteLine("enter a valid option");
                                     break;
                             }
-                            printPersonDetails();
+                            read_Write.WriteText( fileName, personDetails);
+                            printPersonDetails(fileName);
                         }
                     }
                     nLog.logDebug("EditPersonDetails Debug succesfully");
@@ -157,8 +164,9 @@ namespace AddressBook
             }
 
         }
-        public void deletePerson()
+        public void deletePerson(string fileName)
         {
+            personDetails = read_Write.ReadData(fileName);
             Console.WriteLine("Enter FirstName to delete: ");
             String firstName = Console.ReadLine();
 
@@ -175,10 +183,12 @@ namespace AddressBook
                     Console.WriteLine("Enter a valid Name");
                 }
             }
+            read_Write.WriteText(fileName,personDetails);
         }
        
-            public void search_ByCity_State()
+            public void search_ByCity_State(string fileName)
             {
+                personDetails = read_Write.ReadData(fileName);
                 if (personDictionary.Count == 0)
                 {
                     Console.WriteLine("There are no contacts to search");
@@ -207,8 +217,9 @@ namespace AddressBook
                     }
                 }
             }
-        public void View_ByState_City()
+        public void View_ByState_City(string fileName)
         {
+            personDetails = read_Write.ReadData(fileName);  
             Console.WriteLine(" Enter a option to view by city or state\n" + "1. city\n" + "2. state");
             try
             {
@@ -236,8 +247,9 @@ namespace AddressBook
                 throw new AddressBookCustomException("Please enter correct input");
             }
         }
-        public void CountPerson()
+        public void CountPerson(string fileName)
         {
+            personDetails = read_Write.ReadData(fileName);
             Console.WriteLine("Choose how you want to count by city or state\n" + "Press 1 for city\n" + "Press 2 for state");
             try
             {
@@ -263,14 +275,16 @@ namespace AddressBook
                 throw new AddressBookCustomException("Please enter correct input");
             }
         }
-        public void sort_By_FirstName()
+        public void sort_By_FirstName(string fileName)
         {
-           var name = personDetails.OrderBy(name => name.firstName);
+            personDetails = read_Write.ReadData(fileName);
+            var name = personDetails.OrderBy(name => name.firstName);
             foreach (var sort in name)
                 Console.WriteLine(sort.toString());
         }
-        public void sort_By_StateCity_Zip()
+        public void sort_By_StateCity_Zip(string fileName)
         {
+            personDetails = read_Write.ReadData(fileName);
             if (personDictionary.Count == 0)
             {
                 Console.WriteLine("There are no contacts to search");

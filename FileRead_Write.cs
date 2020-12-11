@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -49,8 +50,24 @@ namespace AddressBook
         {
             string path = @"C:\Users\USER\source\repos\AddressBook\";
             string[] array = Directory.GetFiles(path, "*.txt");
+            string[] arrayJson = Directory.GetFiles(path, "*.json");
             foreach (string file in array)
                 Console.WriteLine(Path.GetFileName(file));
+            foreach (string file in arrayJson)
+                Console.WriteLine(Path.GetFileName(file));
+        }
+        public void WriteToJson(string filename, List<ContactPerson> person)
+        {
+            string path = @"C:\Users\USER\source\repos\AddressBook\" + filename;
+            string json = JsonConvert.SerializeObject(person.ToArray());
+            File.WriteAllText(path, json);
+        }
+        public List<ContactPerson> ReadFromJson(string filename)
+        {
+            string path = @"C:\Users\USER\source\repos\AddressBook\" + filename;
+            string jsonFile = File.ReadAllText(path);
+            List<ContactPerson> person = JsonConvert.DeserializeObject<List<ContactPerson>>(jsonFile);
+            return person;
         }
     }
 }

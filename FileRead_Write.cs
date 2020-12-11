@@ -1,6 +1,8 @@
-﻿using Newtonsoft.Json;
+﻿using CsvHelper;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -51,6 +53,9 @@ namespace AddressBook
             string path = @"C:\Users\USER\source\repos\AddressBook\";
             string[] array = Directory.GetFiles(path, "*.txt");
             string[] arrayJson = Directory.GetFiles(path, "*.json");
+            string[] arraycsv = Directory.GetFiles(path, "*.csv");
+            foreach (string file in arraycsv)
+                Console.WriteLine(Path.GetFileName(file));
             foreach (string file in array)
                 Console.WriteLine(Path.GetFileName(file));
             foreach (string file in arrayJson)
@@ -62,12 +67,39 @@ namespace AddressBook
             string json = JsonConvert.SerializeObject(person.ToArray());
             File.WriteAllText(path, json);
         }
-        public List<ContactPerson> ReadFromJson(string filename)
+        public List<ContactPerson> ReadFromJson(string fileName)
         {
-            string path = @"C:\Users\USER\source\repos\AddressBook\" + filename;
+            string path = @"C:\Users\USER\source\repos\AddressBook\" + fileName;
             string jsonFile = File.ReadAllText(path);
             List<ContactPerson> person = JsonConvert.DeserializeObject<List<ContactPerson>>(jsonFile);
             return person;
         }
+        public void writeCsv(string fileName, List<ContactPerson> list)
+        {
+            string path = @"C:\Users\USER\source\repos\AddressBook\" + fileName;
+            using (var writer = new StreamWriter(path))
+            using (var csvWriter = new CsvWriter(writer, CultureInfo.InvariantCulture))
+            {
+                csvWriter.Configuration.Delimiter = ",";
+                csvWriter.Configuration.HasHeaderRecord = true;
+                csvWriter.Configuration.AutoMap<ContactPerson>();
+                csvWriter.WriteHeader<ContactPerson>();
+                csvWriter.NextRecord();
+                csvWriter.WriteRecords(list);
+                writer.Flush();
+                writer.Close();
+            }
+
+        }
+        public List<ContactPerson> ReadCsv(string fileName)
+        {
+            string path = @"C:\Users\USER\source\repos\AddressBook\" + fileName;
+            StreamReader BR = new StreamReader(path);
+            CsvReader csvReader = new CsvReader(BR, CultureInfo.InvariantCulture);
+            List<ContactPerson> person = new List<ContactPerson>();
+            person = csvReader.GetRecords<ContactPerson>().ToList();
+            return person;
+        }
+
     }
 }

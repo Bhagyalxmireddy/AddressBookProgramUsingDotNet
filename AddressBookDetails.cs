@@ -48,7 +48,8 @@ namespace AddressBook
 
         public void addPersonDetails(string fileName)
         {
-            personDetails = read_Write.ReadData(fileName);
+           
+            personDetails = read_Write.ReadFromJson(fileName);
             Console.WriteLine(personDetails.Count);
             try {
                 Console.WriteLine("Enter person Details :");
@@ -73,6 +74,7 @@ namespace AddressBook
                     Console.WriteLine("\n Enter Zip : ");
                     zip = Console.ReadLine();
                     validatingPersonDetails(firstName, lastName, phoneNumber, zip);
+                    read_Write.WriteToJson(fileName,personDetails);
 
                     //personDetails.Add(new ContactPerson(firstName, lastName, address, city, state, phoneNumber, zip));
                     foreach (ContactPerson addPerson in personDetails)
@@ -84,7 +86,7 @@ namespace AddressBook
             {
                 throw new AddressBookCustomException(e.Message);
             }
-            read_Write.WriteText(fileName, personDetails);
+           // read_Write.WriteText(fileName, personDetails);
             nLog.logDebug(" addPersondetails Debug succsufully");
 
         }
@@ -324,7 +326,15 @@ namespace AddressBook
                         Console.WriteLine("Enter a valid option ");
                         break;
                 }
+
             }
+        }
+        public void sort_By_FirstNameusingJson(string fileName)
+        {
+            personDetails = read_Write.ReadFromJson(fileName);
+            var name = personDetails.OrderBy(name => name.firstName);
+            foreach (var sort in name)
+                Console.WriteLine(sort.toString());
         }
     }
 }

@@ -16,3 +16,5 @@ C:\Users\USER\source\repos\AddressBook\bin\Debug\netcoreapp3.1\NLog.dll
 C:\Users\USER\source\repos\AddressBook\obj\Debug\netcoreapp3.1\AddressBook.csproj.CopyComplete
 C:\Users\USER\source\repos\AddressBook\bin\Debug\netcoreapp3.1\NLog.Config
 C:\Users\USER\source\repos\AddressBook\bin\Debug\netcoreapp3.1\AddressBook.txt
+C:\Users\USER\source\repos\AddressBook\bin\Debug\netcoreapp3.1\Json.Net.dll
+C:\Users\USER\source\repos\AddressBook\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll

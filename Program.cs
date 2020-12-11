@@ -9,9 +9,14 @@ namespace AddressBook
             int choice1;
             Console.WriteLine("Welcome to Address Book Program ");
             AddressBookDetails addressBook = new AddressBookDetails();
+            FileRead_Write filewr = new FileRead_Write();
             bool i = true;
             while (i)
             {
+                Console.WriteLine("List of files present in AddressBook");
+                filewr.ShowFiles();
+                Console.WriteLine("Enter a fileName to operate");
+                string fileName = Console.ReadLine();
                 Console.WriteLine("1.AddPersonDetails From AddressBook ");
                 Console.WriteLine("2.printPersonDetails From AddressBook ");
                 Console.WriteLine("3.EditPersonDetails From AddressBook ");
@@ -28,31 +33,31 @@ namespace AddressBook
                     switch (choice1)
                     {
                         case 1:
-                            addressBook.addPersonDetails();
+                            addressBook.addPersonDetails(fileName);
                             break;
                         case 2:
-                            addressBook.printPersonDetails();
+                            addressBook.printPersonDetails(fileName);
                             break;
                         case 3:
-                            addressBook.editPersonDetails();
+                            addressBook.editPersonDetails(fileName);
                             break;
                         case 4:
-                            addressBook.deletePerson();
+                            addressBook.deletePerson(fileName);
                             break;
                         case 5:
-                            addressBook.search_ByCity_State();
+                            addressBook.search_ByCity_State(fileName);
                             break;
                         case 6:
-                            addressBook.View_ByState_City();
+                            addressBook.View_ByState_City(fileName);
                             break;
                         case 7:
-                            addressBook.CountPerson();
+                            addressBook.CountPerson(fileName);
                             break;
                         case 8:
-                            addressBook.sort_By_FirstName();
+                            addressBook.sort_By_FirstName(fileName);
                             break;
                         case 9:
-                            addressBook.sort_By_StateCity_Zip();
+                            addressBook.sort_By_StateCity_Zip(fileName);
                             break;
                         case 10:
                             i = false;
